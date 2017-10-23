@@ -46,7 +46,6 @@ class Delivery{
     if (customer){
       this.customerId = customer.id;
     }
-
     this.id = ++deliveryId;
 
     store.deliveries.push(this);
@@ -69,7 +68,6 @@ class Customer{
   constructor(name, employer){
     this.name = name;
     this.id = ++customerId;
-
     if (employer){
       this.employerId = employer.id;
     }
@@ -92,7 +90,7 @@ class Customer{
   totalSpent(){
     return this.meals().reduce(function(a, b){
       return a.price + b.price;
-    });
+    })
   }
 }
 
@@ -122,7 +120,6 @@ class Employer{
       return delivery.meal();
     })
     return [...new Set(allMeals)]
-
   }
 
   mealTotals(){
