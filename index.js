@@ -53,7 +53,7 @@ class Delivery{
       this.customerId = customer.id
     }
     this.id = ++deliveryId
-    
+
     store.deliveries.push(this)
   };
 
@@ -68,6 +68,10 @@ class Delivery{
       return meal.id === this.mealId
     }.bind(this))
   };
+
+  employer(){
+    return this.customer().employer()
+  }
 }
 
 class Customer{
