@@ -16,8 +16,8 @@ let driverId = 0;
 let passengerId = 0;
 let tripId = 0;
 
-class Meal {
-  constructor(title, price) {
+class Meal{
+  constructor(title, price){
     this.title = title;
     this.price = price;
     this.id = ++mealId;
@@ -25,26 +25,26 @@ class Meal {
     store.meals.push(this);
   }
 
-  static byPrice() {
-    return store.meals.sort(function(a, b) {
+  static byPrice(){
+    return store.meals.sort(function(a, b){
       return b.price - a.price;
     })
   }
 
-  deliveries() {
-    return store.deliveries.filter(function(delivery) {
+  deliveries(){
+    return store.deliveries.filter(function(delivery){
       return delivery.mealId === this.id;
     }.bind(this))
   }
 
-  customers() {
+  customers(){
     return this.deliveries().map(function(delivery) {
       return delivery.customer();
     })
   }
 }
 
-class Delivery {
+class Delivery{
   constructor(meal, customer) {
     if (meal) {
       this.mealId = meal.id;
